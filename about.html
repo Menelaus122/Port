@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me - Ping-ping's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #1A1A1A, #333);
+      background-size: 400% 400%;
+      animation: gradient-animation 15s ease infinite;
+      color: #FFFFFF;
+      scroll-behavior: smooth;
+      transition: background-color 0.5s ease;
+      position: relative;
+    }
+
+    @keyframes gradient-animation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Adding overlay to background */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: -1; /* Stays behind the content */
+    }
+
+    /* Navbar Styles */
+    header {
+      background-color: rgba(0, 0, 0, 0.9);
+      padding: 15px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+      transition: background-color 0.3s ease;
+    }
+
+    #navbar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+    }
+
+    #navbar ul li {
+      display: inline-block;
+      margin: 0 15px;
+    }
+
+    #navbar ul li a {
+      color: #FFFFFF;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 5px 10px;
+      transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    }
+
+    #navbar ul li a:hover {
+      background-color: #00FF00;
+      color: #000;
+      border-radius: 5px;
+      box-shadow: 0 0 10px 5px rgba(0, 255, 0, 0.7);
+    }
+
+    /* About Info Section */
+    .about-info {
+      max-width: 800px;
+      margin: 150px auto;
+      padding: 40px;
+      background: rgba(0, 0, 0, 0.9);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+      border-radius: 20px;
+      color: #00FF00;
+      font-size: 18px;
+      line-height: 1.8;
+      text-align: left;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .about-info:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 25px 45px rgba(0, 255, 0, 0.5);
+    }
+
+    /* Decoration for h2 */
+    h2 {
+      font-size: 48px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #FFD700, #00FF00);
+      
+      /* Vendor-prefixed background-clip for compatibility */
+      -webkit-background-clip: text; /* For Safari and older versions of Chrome */
+      background-clip: text; /* Standard property */
+      
+      color: transparent; /* Makes the text transparent and shows the gradient */
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    /* Add an underline effect */
+    h2::after {
+      content: '';
+      display: block;
+      width: 150px;
+      height: 5px;
+      background: linear-gradient(90deg, #FFD700, #00FF00);
+      margin: 10px auto;
+      border-radius: 5px;
+      animation: slideIn 1s ease forwards;
+    }
+
+    /* Grid Layout for Info */
+    .about-info .info-list {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-gap: 15px 20px;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 15px;
+      border: 2px solid transparent;
+      background-clip: padding-box;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .about-info .info-list:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 255, 0, 0.3);
+    }
+
+    .about-info .info-list .label {
+      font-weight: bold;
+      text-align: left;
+      color: #FFD700;
+      transition: color 0.3s ease;
+    }
+
+    .about-info .info-list .label:hover {
+      color: #FFFFFF;
+    }
+
+    .about-info .info-list .content {
+      color: #FFFFFF;
+      padding-left: 10px;
+    }
+
+    .about-info .info-list .content strong {
+      font-weight: bold;
+      color: #FFD700;
+    }
+
+    /* Animation for Fade-in */
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Underline slide-in animation */
+    @keyframes slideIn {
+      0% {
+        width: 0;
+      }
+      100% {
+        width: 150px;
+      }
+    }
+
+    /* Responsive Design for Mobile */
+    @media (max-width: 768px) {
+      .about-info .info-list {
+        grid-template-columns: 1fr;
+        padding: 15px;
+      }
+
+      .about-info .info-list .label, .about-info .info-list .content {
+        text-align: left;
+      }
+    }
+
+    /* Footer Section */
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #00FF00;
+      font-size: 14px;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav id="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- About Me Section -->
+  <section id="about" class="section">
+    <div class="about-info">
+      <h2>About Me</h2>
+      <div class="info-list">
+        <div class="label">ชื่อ-สกุล:</div>
+        <div class="content"><strong>ภูมิพัฒน์ อภิวาทธนะพงศ์</strong></div>
+        
+        <div class="label">ชื่อเล่น:</div>
+        <div class="content"><strong>ปิงๆ</strong></div>
+
+        <div class="label">อายุ:</div>
+        <div class="content"><strong>18 ปี</strong></div>
+
+        <div class="label">วันเดือนปีเกิด:</div>
+        <div class="content"><strong>12/02/2549</strong></div>
+
+        <div class="label">กรุ๊ปเลือด:</div>
+        <div class="content"><strong>O</strong></div>
+
+        <div class="label">งานอดิเรก:</div>
+        <div class="content"><strong>ฟังเพลง</strong></div>
+
+        <div class="label">อาหารโปรด:</div>
+        <div class="content"><strong>เนื้อย่าง</strong></div>
+
+        <div class="label">เครื่องดื่มโปรด:</div>
+        <div class="content"><strong>กาแฟดำ, ชาไข่มุก</strong></div>
+
+        <div class="label">นิสัยส่วนตัว:</div>
+        <div class="content">
+          <strong>เป็นคนเงียบๆ ถ้าไม่รู้จักจะไม่ค่อยพูดด้วย เเต่ถ้าสนิทก็จะคุยด้วยเป็นพิเศษ เป็นคนใจเย็น 
+          สามารถบอกฝันดี อรุณสวัสดิ์ (โทรปลุกตอนเช้าก็ทำได้นะครับแฮร่)</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</body>
+</html>

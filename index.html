@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Ping-ping's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #1A1A1A, #333);
+      background-size: 400% 400%;
+      animation: gradient-animation 15s ease infinite;
+      color: #FFFFFF;
+      scroll-behavior: smooth;
+      transition: background-color 0.5s ease;
+      position: relative;
+    }
+
+    @keyframes gradient-animation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Navbar Styles */
+    header {
+      background-color: rgba(0, 0, 0, 0.9);
+      padding: 15px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+      transition: background-color 0.3s ease;
+    }
+
+    #navbar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+    }
+
+    #navbar ul li {
+      display: inline-block;
+      margin: 0 15px;
+    }
+
+    #navbar ul li a {
+      color: #FFFFFF;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 5px 10px;
+      transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    }
+
+    #navbar ul li a:hover {
+      background-color: #00FF00;
+      color: #000;
+      border-radius: 5px;
+      box-shadow: 0 0 10px 5px rgba(0, 255, 0, 0.7);
+    }
+
+    /* Home Section */
+    .section {
+      padding: 150px 20px;
+      text-align: center;
+    }
+
+    h1, h2 {
+      margin: 0 0 20px 0;
+    }
+
+    .typing-effect {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 50px;
+      text-align: center;
+      color: #00FF00;
+    }
+
+    .typing-effect-h2 {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 24px;
+      color: #00FF00;
+      margin-bottom: 30px;
+    }
+
+    /* Profile Image and Text Container */
+    .profile-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+      margin-top: 30px;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .profile-container.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Circular frame styling */
+    .profile-frame {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+
+    .profile-frame:hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 40px rgba(0, 255, 0, 0.7);
+    }
+
+    /* Image styling */
+    .profile-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    /* Profile text styling */
+    .profile-text {
+      color: #FFFFFF;
+      font-size: 20px;
+      font-weight: 400;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 10px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+    }
+
+    /* Section Separator */
+    .section-separator {
+      height: 2px;
+      background-color: #00FF00;
+      margin: 40px 0;
+      border-radius: 2px;
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Media Queries for Responsiveness */
+    @media (max-width: 768px) {
+      .profile-frame {
+        width: 200px;
+        height: 200px;
+      }
+
+      .typing-effect {
+        font-size: 40px;
+      }
+
+      .typing-effect-h2 {
+        font-size: 20px;
+      }
+
+      .profile-text {
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .typing-effect {
+        font-size: 30px;
+      }
+
+      .typing-effect-h2 {
+        font-size: 16px;
+      }
+
+      .profile-text {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav id="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home" class="section">
+    <div class="landing-text">
+      <h1 class="typing-effect" id="typing-text">สวัสดีครับทุกท่าน ยินดีต้อนรับทุกคนเข้าสู่โลกของผม</h1>
+      <div class="profile-container" id="profile">
+        <div class="profile-frame">
+          <img src="IMG_2659.jpg" alt="Ping-ping" />
+        </div>
+        <div class="profile-text">
+          <h2 class="typing-effect-h2" id="typing-h2">ผมชื่อ ภูมิพัฒน์ อภิวาทธนะพงศ์นะครับ<br> ทุกคนสามารถเรียกผมว่าปิงๆได้เลยครับ</h2>
+        </div>
+      </div>
+    </div>
+    <div class="section-separator"></div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const typingText = document.querySelector('.typing-effect');
+      const typingH2 = document.querySelector('.typing-effect-h2');
+      const text = typingText.textContent;
+      const h2Text = typingH2.innerHTML.replace('<br>', '\n'); // Replacing <br> with a newline for typing effect
+      const profile = document.getElementById('profile');
+      
+      typingText.textContent = '';
+      typingH2.innerHTML = '';
+      
+      let i = 0;
+      let j = 0;
+
+      function typeWriterH1() {
+        if (i < text.length) {
+          typingText.textContent += text.charAt(i);
+          i++;
+          setTimeout(typeWriterH1, 100);
+        } else {
+          setTimeout(() => {
+            typingText.classList.add('centered');
+            profile.classList.add('show');
+            typeWriterH2(); // Start typing the h2 text after h1 is done
+          }, 1000);
+        }
+      }
+
+      function typeWriterH2() {
+        if (j < h2Text.length) {
+          if (h2Text.charAt(j) === '\n') {
+            typingH2.innerHTML += '<br>';
+          } else {
+            typingH2.innerHTML += h2Text.charAt(j);
+          }
+          j++;
+          setTimeout(typeWriterH2, 100);
+        }
+      }
+      
+      typeWriterH1(); // Start typing effect for the h1 first
+    });
+  </script>
+</body>
+</html>
